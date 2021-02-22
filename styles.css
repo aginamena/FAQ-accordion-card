@@ -1,0 +1,117 @@
+*{
+   /* we want to remove default broser styling by making margin and padding to 0 */
+  margin: 0;
+  padding : 0;
+  /* we also want containers to have a fixed width  */
+  box-sizing: border-box;
+}
+.main-page{
+  height : minmax(100vh, auto);
+  background-image: linear-gradient(hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+  display : flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.content{
+  /* we want to have a responsive height that changes with input. The browser
+  calculates the height for us so no overflow occurs */
+  height: auto;
+  width: 70%;
+  background-color: white;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  /* if there's an overflow, it should scroll */
+  padding-bottom: 100px;
+  margin-top:10%;
+  margin-bottom:10%;
+
+}
+.images{
+  width:500px;
+  position: relative;
+}
+/* we want the box-image and the woman's image to be resonsive with screen sizes*/
+.box-image{
+  width: 100%;
+  max-width: 191px;
+  height: auto;
+  /* the box has a higher z-index then the woman because that's how it's in the design */
+  z-index: 2;
+  position:  absolute;
+  top:37%;
+  left : -90px;
+}
+.woman-image{
+  width: 100%;
+  max-width: 472px;
+  height: auto;
+  z-index: 1;
+  position: absolute;
+  top: 15%;
+  right: 60px;
+}
+.question-list{
+  margin-right: 100px;
+  font-family: 'Kumbh Sans', sans-serif;
+
+}
+.faq{
+  font-weight: 700;
+  font-size: 30px;
+  margin-top:50px;
+  margin-bottom: 50px;
+}
+.arrow{
+  float:right;
+}
+.question{
+  /* font-size: 12px; */
+  border:3px solid hsl(240, 5%, 91%);
+  padding:20px;
+}
+.answer-one, .answer-two, .answer-three,
+.answer-four, .answer-five{
+  margin-top:10px;
+}
+.question:hover{
+  border:1px solid black;
+  cursor: pointer;
+}
+
+.question-list, .attribution{
+  width: 400px;
+}
+
+/* if the screen size is 876.25px and lower, appply this styling */
+@media(max-width: 876.25px){
+  .content{
+    display:block;
+    text-align: center;
+    height: 900px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+  .images{
+    background:url("images/illustration-woman-online-mobile.svg") no-repeat;
+    height: 200px;
+    position: relative;
+    top:-90px;
+    left:100px;
+  }
+  .box-image, .woman-image{
+    display:none;
+  }
+
+  .question-list{
+    position:  absolute;
+    /* we want the width of the list to be thesame size as that of the parent */
+    width: inherit;
+  }
+  .main-page{
+    /* we want the height of the main-page to be calculated by the browser
+    in smaller scree size so no overflow will occur */
+    height:auto;
+  }
+}
